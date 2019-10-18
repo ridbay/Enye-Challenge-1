@@ -71,6 +71,10 @@ class App extends Component {
           hobby={this.state.hobby}
           handleDateChange={this.handleDateChange} />
         <Table items={this.state.items} />
+        <div>{this.state.firstName}</div>
+        <div>{this.state.lastName}</div>
+        <div>{this.state.birthday}</div>
+        <div>{this.state.hobby}</div>
         
       </div>
     );
