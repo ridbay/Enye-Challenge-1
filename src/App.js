@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Form />
-      <Button type="primary">Button</Button>
+      {/* <Button type="primary">Button</Button> */}
     </div>
   );
 }

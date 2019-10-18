@@ -2,38 +2,76 @@ import React, { Component } from 'react';
 
 
 class Form extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
-      value: '',
+      firstName: '',
+      lastName: '',
+      birthday: '',
+      age: '',
+      hobby: '',
     }
   }
 
   handleChange = (event) => {
-    this.setState({
-      value: event.target.value
-    })
+    const { value, name } = event.target;
+    this.setState({[name]: value})
   }
 
   handleSubmit = (event) => {
-    alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
+    this.setState({
+      // firstName: '',
+      // lName: '',
+      // birthday: '',
+      // age: '',
+      // hobby: '',
+    })
   }
   render() {
+    
     return (
       <div>
         <form onSubmit={this.handleSubmit} >
-          <label>First Name: 
-          <input type="text" 
-                 name="fname"   
-                 value={this.state.value} 
-                 onChange={this.handleChange} 
-          />
+          <label>First Name:
+          <input type="text" name="firstName" value={this.state.firstName} onChange={this.handleChange} />
           </label>
-          <input type="submit" value="Submit"/>
+          <label>Last Name:
+          <input type="text"
+              name="lastName"
+              value={this.state.lastName}
+              onChange={this.handleChange}
+            />
+          </label>
+          <label>Birthday:
+          <input type="text"
+              name="birthday"
+              value={this.state.birthday}
+              onChange={this.handleChange}
+            />
+          </label>
+          <label>Age:
+          <input type="text"
+              name="age"
+              value={this.state.age}
+              onChange={this.handleChange}
+            />
+          </label>
+          <label>Hobby:
+          <input type="text"
+              name="hobby"
+              value={this.state.hobby}
+              onChange={this.handleChange}
+            />
+          </label>
+          <input type="submit" value="Submit" />
         </form>
 
-        <div>{this.state.value}</div>
+        <div>{this.state.firstName}</div>
+        <div>{this.state.lastName}</div>
+        <div>{this.state.birthday}</div>
+        <div>{this.state.age}</div>
+        <div>{this.state.hobby}</div>
       </div>
     )
   }
