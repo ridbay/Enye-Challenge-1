@@ -7,7 +7,7 @@ class Form extends Component {
     this.state = {
       firstName: '',
       lastName: '',
-      birthday: '',
+      birthday: '2019-10-18',
       age: '',
       hobby: '',
     }
@@ -21,11 +21,11 @@ class Form extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.setState({
-      // firstName: '',
-      // lName: '',
-      // birthday: '',
-      // age: '',
-      // hobby: '',
+      firstName: '',
+      lName: '',
+      birthday: '',
+      age: '',
+      hobby: '',
     })
   }
   render() {
@@ -44,7 +44,7 @@ class Form extends Component {
             />
           </label>
           <label>Birthday:
-          <input type="text"
+          <input type="date"
               name="birthday"
               value={this.state.birthday}
               onChange={this.handleChange}
