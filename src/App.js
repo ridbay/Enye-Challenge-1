@@ -1,13 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+
+
+import Form from './components/UserForm';
+import Button from 'antd/es/button';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        
-      </header>
+      <Form />
+      <Button type="primary">Button</Button>
     </div>
   );
 }
