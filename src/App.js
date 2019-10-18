@@ -53,7 +53,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Form handleChange={this.handleChange}
+        {/* <Form handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          firstName={this.state.firstName}
+          lastName={this.state.lastName}
+          birthday={this.state.birthday}
+          age={this.state.age}
+          hobby={this.state.hobby}
+          handleDateChange={this.handleDateChange} /> */}
+          <HorizontalLoginForm 
+          handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           firstName={this.state.firstName}
           lastName={this.state.lastName}
@@ -61,7 +70,6 @@ class App extends Component {
           age={this.state.age}
           hobby={this.state.hobby}
           handleDateChange={this.handleDateChange} />
-          <HorizontalLoginForm />
         <Table items={this.state.items} />
         
       </div>

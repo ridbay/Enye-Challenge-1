@@ -60,7 +60,7 @@ class HorizontalLoginForm extends React.Component {
             rules: [{ required: true, message: 'Please input your Hobby!' }],
           })(
             <Input
-              prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+              prefix={<Icon type="customer-service" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="Hobby"
             />,
           )}
