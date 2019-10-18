@@ -3,6 +3,7 @@ import "antd/dist/antd.css";
 import './App.css';
 import moment from 'moment'
 import Form from './components/UserForm2';
+import HorizontalLoginForm from './components/UserForm3'
 import Table from './components/Table'
 
 
@@ -60,7 +61,9 @@ class App extends Component {
           age={this.state.age}
           hobby={this.state.hobby}
           handleDateChange={this.handleDateChange} />
+          <HorizontalLoginForm />
         <Table items={this.state.items} />
+        
       </div>
     );
   }
