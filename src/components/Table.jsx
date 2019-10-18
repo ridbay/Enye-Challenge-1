@@ -15,9 +15,9 @@ class Table extends Component {
                             <th>Age</th>
                             <th>Hobby</th>
                         </tr>
-                        {items.map(item => {
+                        {items.map((item, index )=> {
                             return (
-                                <tr>
+                                <tr key={index}>
                                     <td>{item.firstName}</td>
                                     <td>{item.lastName}</td>
                                     <td>{item.birthday}</td>

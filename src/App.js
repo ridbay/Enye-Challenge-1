@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
-
+import "antd/dist/antd.css";
 import './App.css';
-
-
-import Form from './components/UserForm';
+import moment from 'moment'
+import Form from './components/UserForm2';
 import Table from './components/Table'
-// import Button from 'antd/es/button';
+
 
 class App extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
       firstName: '',
       lastName: '',
-      birthday: '2019-10-18',
+      birthday: null,
       age: '',
       hobby: '',
-      items : [],
+      items: [],
     }
   }
 
@@ -33,31 +32,38 @@ class App extends Component {
     this.setState({
       firstName: '',
       lastName: '',
-      birthday: '2019-10-18',
+      birthday: null,
       age: '',
       hobby: '',
       items,
     })
   }
 
-  handleChange = e => {
+  handleChange = (e) => {
     const { value, name } = e.target;
-    this.setState({[name]: value})
+    this.setState({ [name]: value })
   }
-  render(){
+
+  handleDateChange = (date, dateString) => {
+    const years = moment().diff(dateString, 'years',false);
+    this.setState({ birthday: dateString, age: years });
+  };
+
+  render() {
     return (
-    <div className="App">
-      <Form handleChange={this.handleChange} 
-      handleSubmit={this.handleSubmit} 
-      firstName= {this.state.firstName}
-      lastName ={ this.state.lastName}
-      birthday = {this.state.birthday}
-      age= {this.state.age}
-      hobby= {this.state.hobby}/>
-      <Table items={this.state.items}/>
-    </div>
-  );
-}
+      <div className="App">
+        <Form handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          firstName={this.state.firstName}
+          lastName={this.state.lastName}
+          birthday={this.state.birthday}
+          age={this.state.age}
+          hobby={this.state.hobby}
+          handleDateChange={this.handleDateChange} />
+        <Table items={this.state.items} />
+      </div>
+    );
+  }
 }
 
 export default App;

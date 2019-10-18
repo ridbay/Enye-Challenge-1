@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { DatePicker } from 'antd';
+import { DatePicker} from 'antd';
 import 'antd/dist/antd.css';
+import moment from 'moment';
 
 class Form extends Component {
 
   render() {
-    const {handleChange, handleSubmit,firstName,lastName,birthday, age, hobby} = this.props;
+    
+    const {handleChange,handleDateChange, handleSubmit,firstName,lastName, age, hobby} = this.props;
     return (
       <div>
         <form onSubmit={handleSubmit} >
@@ -20,19 +22,15 @@ class Form extends Component {
             />
           </label>
           <label>Birthday:
-          <input type="date"
-              name="birthday"
-              value={birthday}
-              onChange={handleChange}
-            />
+            <DatePicker onChange={handleDateChange} defaultValue={moment()} showToday />
           </label>
-          <label>Age:
+          {/* <label>Age:
           <input type="text"
               name="age"
               value={age}
               onChange={handleChange}
             />
-          </label>
+          </label> */}
           <label>Hobby:
           <input type="text"
               name="hobby"

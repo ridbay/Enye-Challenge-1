@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Table, Divider, Tag } from 'antd';
 
-class Table extends Component {
+class Table2 extends Component {
 
     render() {
         const { items } = this.props;
@@ -33,4 +34,4 @@ class Table extends Component {
     }
 }
 
-export default Table;
+export default Table2;
