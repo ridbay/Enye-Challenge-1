@@ -2,14 +2,18 @@
   "name": "challenge1",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://ridbay.github.io/Enye-Challenge-1",
   "dependencies": {
     "antd": "^3.24.1",
+    "gh-pages": "^2.1.1",
     "moment": "^2.24.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-scripts": "3.2.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
