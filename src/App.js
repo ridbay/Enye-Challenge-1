@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "antd/dist/antd.css";
 import './App.css';
 import moment from 'moment'
-import Form from './components/UserForm2';
+
 import HorizontalLoginForm from './components/UserForm3'
 import Table from './components/Table'
 
@@ -53,14 +53,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <Form handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          firstName={this.state.firstName}
-          lastName={this.state.lastName}
-          birthday={this.state.birthday}
-          age={this.state.age}
-          hobby={this.state.hobby}
-          handleDateChange={this.handleDateChange} /> */}
+
           <HorizontalLoginForm 
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
@@ -71,11 +64,7 @@ class App extends Component {
           hobby={this.state.hobby}
           handleDateChange={this.handleDateChange} />
         <Table items={this.state.items} />
-        <div>{this.state.firstName}</div>
-        <div>{this.state.lastName}</div>
-        <div>{this.state.birthday}</div>
-        <div>{this.state.hobby}</div>
-        
+
       </div>
     );
   }
