@@ -13,7 +13,7 @@ class Table extends Component {
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Birthday</th>
-                            <th>Age</th>
+                            <th>Age (years)</th>
                             <th>Hobby</th>
                         </tr>
                         {items.map((item, index )=> {

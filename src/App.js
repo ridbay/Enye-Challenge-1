@@ -23,12 +23,13 @@ class App extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const items = [...this.state.items];
+    const {firstName, lastName, birthday, age, hobby} = this.state;
     items.push({
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      birthday: this.state.birthday,
-      age: this.state.age,
-      hobby: this.state.hobby,
+      firstName,
+      lastName,
+      birthday,
+      age,
+      hobby,
     });
     this.setState({
       firstName: '',
