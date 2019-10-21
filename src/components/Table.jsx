@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Table.css'
 
 class Table extends Component {
 
@@ -6,7 +7,7 @@ class Table extends Component {
         const { items } = this.props;
         return (
             <div>
-                <table>
+                <table className="table">
                     <tbody>
                         <tr>
                             <th>First Name</th>
