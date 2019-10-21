@@ -3,7 +3,7 @@ import "antd/dist/antd.css";
 import './App.css';
 import moment from 'moment'
 
-import HorizontalLoginForm from './components/UserForm3'
+import UserForm from './components/UserForm';
 import Table from './components/Table'
 
 
@@ -54,7 +54,7 @@ class App extends Component {
     return (
       <div className="App">
 
-          <HorizontalLoginForm 
+          <UserForm 
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           firstName={this.state.firstName}

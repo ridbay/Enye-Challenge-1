@@ -6,20 +6,11 @@ function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some(field => fieldsError[field]);
 }
 
-class HorizontalLoginForm extends React.Component {
+class UserForm  extends React.Component {
   componentDidMount() {
     // To disabled submit button at the beginning.
     this.props.form.validateFields();
   }
-
-  // handleSubmit = e => {
-  //   e.preventDefault();
-  //   this.props.form.validateFields((err, values) => {
-  //     if (!err) {
-  //       console.log('Received values of form: ', values);
-  //     }
-  //   });
-  // };
 
   render() {
     const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
@@ -87,4 +78,4 @@ class HorizontalLoginForm extends React.Component {
   }
 }
 
-export default Form.create({ name: 'horizontal_login' })(HorizontalLoginForm);
+export default Form.create({ name: 'horizontal_login' })(UserForm);
