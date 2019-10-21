@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Enye-Challenge-1/static/css/main.7089d92d.chunk.css",
+    "main.js": "/Enye-Challenge-1/static/js/main.8e0be090.chunk.js",
+    "main.js.map": "/Enye-Challenge-1/static/js/main.8e0be090.chunk.js.map",
+    "runtime-main.js": "/Enye-Challenge-1/static/js/runtime-main.6bc271fd.js",
+    "runtime-main.js.map": "/Enye-Challenge-1/static/js/runtime-main.6bc271fd.js.map",
+    "static/css/2.6547dd70.chunk.css": "/Enye-Challenge-1/static/css/2.6547dd70.chunk.css",
+    "static/js/2.06fafcf0.chunk.js": "/Enye-Challenge-1/static/js/2.06fafcf0.chunk.js",
+    "static/js/2.06fafcf0.chunk.js.map": "/Enye-Challenge-1/static/js/2.06fafcf0.chunk.js.map",
+    "index.html": "/Enye-Challenge-1/index.html",
+    "precache-manifest.1504c507af3c51094600b0c30e7c7804.js": "/Enye-Challenge-1/precache-manifest.1504c507af3c51094600b0c30e7c7804.js",
+    "service-worker.js": "/Enye-Challenge-1/service-worker.js",
+    "static/css/2.6547dd70.chunk.css.map": "/Enye-Challenge-1/static/css/2.6547dd70.chunk.css.map",
+    "static/css/main.7089d92d.chunk.css.map": "/Enye-Challenge-1/static/css/main.7089d92d.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6bc271fd.js",
+    "static/css/2.6547dd70.chunk.css",
+    "static/js/2.06fafcf0.chunk.js",
+    "static/css/main.7089d92d.chunk.css",
+    "static/js/main.8e0be090.chunk.js"
+  ]
+}
