@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Table.css'
 
-class Table extends Component {
-
-    render() {
-        const { items } = this.props;
+const Table = (props)=> {
+        const { items } = props;
         return (
             <div>
                 <table className="table">
@@ -31,7 +29,6 @@ class Table extends Component {
                 </table>
             </div>
         )
-    }
 }
 
 export default Table;
