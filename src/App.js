@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import "antd/dist/antd.css";
 import './App.css';
-import moment from 'moment'
+import moment from 'moment';
+import {connect} from 'react-redux';
+import {setItem} from './redux/actions'
 
 import UserForm from './components/UserForm';
 import Table from './components/Table'
@@ -13,7 +15,7 @@ const App =()=> {
   const [birthday, setBirthday] = useState(null);
   const [age, setAge] = useState('');
   const [hobby, setHobby] = useState('');
-  const [items, setItems] = useState([]);
+  // const [items, setItems] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,7 +28,8 @@ const App =()=> {
       age,
       hobby,
     });
-    setItems([...items, newItems]);
+    // setItems([...items, newItems]);
+    this.props.setItem([newItems])
 
     console.log("array leaving handlesubmit", items)
     // setFirstName('');
@@ -66,10 +69,14 @@ const App =()=> {
           age={age}
           hobby={hobby}
           handleDateChange={handleDateChange} />
-        <Table items={items} />
+        <Table />
 
       </div>
     );
 }
+const mapDispatchToProps = dispatch => ({
+  setItem: item => dispatch(setItem(item))
+})
 
-export default App;
+
+export default connect(null, mapDispatchToProps)(App);

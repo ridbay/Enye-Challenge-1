@@ -1,5 +1,6 @@
 import React from 'react';
-import './Table.css'
+import './Table.css';
+import {connect} from 'react-redux';
 
 const Table = (props)=> {
         const { items } = props;
@@ -31,4 +32,8 @@ const Table = (props)=> {
         )
 }
 
-export default Table;
+
+const mapStateToProps = (state) => ({
+items: state.items
+})
+export default connect(mapStateToProps)(Table);
