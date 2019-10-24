@@ -9,7 +9,7 @@ import UserForm from './components/UserForm';
 import Table from './components/Table'
 
 
-const App =()=> {
+const App =(props)=> {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [birthday, setBirthday] = useState(null);
@@ -19,7 +19,7 @@ const App =()=> {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("items in entering handelsubmit", items)
+
     const newItems = [];
     newItems.push({
       firstName,
@@ -28,10 +28,10 @@ const App =()=> {
       age,
       hobby,
     });
-    // setItems([...items, newItems]);
-    this.props.setItem([newItems])
 
-    console.log("array leaving handlesubmit", items)
+    console.log("checking the new items", setItem(newItems))
+    // setItems([...items, newItems]);
+    props.setItem(newItems)
     // setFirstName('');
     // setLastName('');
     // setBirthday(null);
