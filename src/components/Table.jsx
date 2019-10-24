@@ -3,6 +3,7 @@ import './Table.css'
 
 const Table = (props)=> {
         const { items } = props;
+        console.log("items entering table", items)
         return (
             <div>
                 <table className="table">
@@ -19,8 +20,8 @@ const Table = (props)=> {
                                 <tr key={index}>
                                     <td>{item.firstName}</td>
                                     <td>{item.lastName}</td>
-                                    <td>{item.birthday}</td>
-                                    <td>{item.age}</td>
+                                    <td>{item.birthday.birthday}</td>
+                                    <td>{item.age.age}</td>
                                     <td>{item.hobby}</td>
                                 </tr>
                             );

@@ -18,15 +18,14 @@ const App =()=> {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("items in entering handelsubmit", items)
-    const newItems = [];
-    newItems.push({
+    items.push({
       firstName,
       lastName,
       birthday,
       age,
       hobby,
     });
-    setItems([...items, newItems]);
+    setItems([...items]);
 
     console.log("array leaving handlesubmit", items)
     // setFirstName('');
