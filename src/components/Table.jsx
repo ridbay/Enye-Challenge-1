@@ -3,7 +3,6 @@ import './Table.css'
 
 const Table = (props)=> {
         const { items } = props;
-        console.log("items entering table", items)
         return (
             <div>
                 <table className="table">

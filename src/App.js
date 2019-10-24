@@ -17,7 +17,6 @@ const App =()=> {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("items in entering handelsubmit", items)
     items.push({
       firstName,
       lastName,
@@ -25,15 +24,13 @@ const App =()=> {
       age,
       hobby,
     });
-    setItems([...items]);
 
-    console.log("array leaving handlesubmit", items)
-    // setFirstName('');
-    // setLastName('');
-    // setBirthday(null);
-    // setAge('');
-    // setHobby('');
-    // setItems([])
+    setFirstName('');
+    setLastName('');
+    setBirthday(null);
+    setAge('');
+    setHobby('');
+    setItems([...items]);
   }
 
   const changeFirstName = (e) => {
