@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Icon, Input, Button, DatePicker } from 'antd';
 import moment from 'moment';
 
-function hasErrors(fieldsError) {
+const hasErrors = (fieldsError)=> {
   return Object.keys(fieldsError).some(field => fieldsError[field]);
 }
 
@@ -14,7 +14,7 @@ class UserForm  extends React.Component {
 
   render() {
     const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
-    const {handleChange,handleDateChange, handleSubmit,firstName,lastName, hobby} = this.props;
+    const {changeFirstName, changeLastName, changeHobby,handleDateChange, handleSubmit,firstName,lastName, hobby} = this.props;
 
     // Only show error after a field is touched.
     const fNameError = isFieldTouched('fName') && getFieldError('fName');
@@ -31,8 +31,8 @@ class UserForm  extends React.Component {
               prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="First Name"
               name="firstName" 
-              setFieldsValue={firstName} 
-              onChange={handleChange} 
+              setfieldsvalue={firstName} 
+              onChange={changeFirstName} 
             />,
           )}
         </Form.Item>
@@ -44,15 +44,15 @@ class UserForm  extends React.Component {
               prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="Last Name"
               name="lastName" 
-              setFieldsValue={lastName} 
-              onChange={handleChange} 
+              setfieldsvalue={lastName} 
+              onChange={changeLastName} 
             />,
           )}
         </Form.Item>
         <Form.Item label="Birthday" validateStatus={dateError ? 'error' : ''} help={dateError || ''}>
           {getFieldDecorator('date-picker', {
             rules: [{ required: true, message: 'Please select your date of birth!' }],
-          })(<DatePicker onChange={handleDateChange} defaultValue={moment()} showToday />)}
+          })(<DatePicker onChange={handleDateChange} initialValue={moment()} showToday />)}
         </Form.Item>
         <Form.Item validateStatus={hobbyError ? 'error' : ''} help={hobbyError || ''}>
           {getFieldDecorator('hobby', {
@@ -62,8 +62,8 @@ class UserForm  extends React.Component {
               prefix={<Icon type="customer-service" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="Hobby"
               name="hobby"
-              setFieldsValue={hobby}
-              onChange={handleChange}
+              setfieldsvalue={hobby}
+              onChange={changeHobby}
             />,
           )}
         </Form.Item>

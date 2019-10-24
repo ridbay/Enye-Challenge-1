@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import "antd/dist/antd.css";
 import './App.css';
 import moment from 'moment'
@@ -7,69 +7,69 @@ import UserForm from './components/UserForm';
 import Table from './components/Table'
 
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      firstName: '',
-      lastName: '',
-      birthday: null,
-      age: '',
-      hobby: '',
-      items: [],
-    }
-  }
+const App =()=> {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [birthday, setBirthday] = useState(null);
+  const [age, setAge] = useState('');
+  const [hobby, setHobby] = useState('');
+  const [items, setItems] = useState([]);
 
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const items = [...this.state.items];
-    const {firstName, lastName, birthday, age, hobby} = this.state;
-    items.push({
+    console.log("items in entering handelsubmit", items)
+    const newItems = [];
+    newItems.push({
       firstName,
       lastName,
       birthday,
       age,
       hobby,
     });
-    
-    this.setState({
-      firstName: '',
-      lastName: '',
-      birthday: null,
-      age: '',
-      hobby: '',
-      items,
-    })
+    setItems([...items, newItems]);
+
+    console.log("array leaving handlesubmit", items)
+    // setFirstName('');
+    // setLastName('');
+    // setBirthday(null);
+    // setAge('');
+    // setHobby('');
+    // setItems([])
   }
 
-  handleChange = (e) => {
-    const { value, name } = e.target;
-    this.setState({ [name]: value })
+  const changeFirstName = (e) => {
+    setFirstName(e.target.value)
   }
-
-  handleDateChange = (date, dateString) => {
+  const changeLastName = (e) => {
+    setLastName(e.target.value)
+  }
+  const changeHobby = (e) => {
+    setHobby(e.target.value)
+  }
+  const handleDateChange = (date, dateString) => {
     const years = moment().diff(dateString, 'years',false);
-    this.setState({ birthday: dateString, age: years });
+    setBirthday({ birthday: dateString});
+    setAge({age: years })
   };
 
-  render() {
     return (
       <div className="App">
 
           <UserForm 
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          firstName={this.state.firstName}
-          lastName={this.state.lastName}
-          birthday={this.state.birthday}
-          age={this.state.age}
-          hobby={this.state.hobby}
-          handleDateChange={this.handleDateChange} />
-        <Table items={this.state.items} />
+          changeFirstName={changeFirstName}
+          changeLastName={changeLastName}
+          changeHobby={changeHobby}
+          handleSubmit={handleSubmit}
+          firstName={firstName}
+          lastName={lastName}
+          birthday={birthday}
+          age={age}
+          hobby={hobby}
+          handleDateChange={handleDateChange} />
+        <Table items={items} />
 
       </div>
     );
-  }
 }
 
 export default App;
