@@ -1,18 +1,20 @@
-const INITIAL_STATE ={
-    items: []
+const INITIAL_STATE = {
+    firstName: '',
+    lastName: '',
+    birthday: null,
+    age: '',
+    hobby: '',
+    items: [],
 }
 
-const userReducer = (state=INITIAL_STATE, action) => {
+const itemReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case 'SET_ITEMS':
-            return {
-                ...state,
-                items: action.payload
-            }
-    
+        case 'SET_ITEM':
+            return state.concat({ firstName: action.firstName, lastName: action.lastName, id: action.id, hobby: action.hobby, birthday: action.birthday, age:action.age })
+
         default:
             return state;
     }
 }
 
-export default userReducer;
+export default itemReducer;

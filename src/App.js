@@ -1,82 +1,86 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer  } from 'react';
+import uuid from 'uuid/v4';
+import moment from 'moment';
+
+import Table from './components/Table';
+import UserForm from './components/UserForm';
+import itemReducer from './redux/reducer'
+
 import "antd/dist/antd.css";
 import './App.css';
-import moment from 'moment';
-import {connect} from 'react-redux';
-import {setItem} from './redux/actions'
 
-import UserForm from './components/UserForm';
-import Table from './components/Table'
+const initialItems = [];
 
 
-const App =(props)=> {
+const App = () => {
+
+  const [items, dispatchItems] = useReducer(itemReducer, initialItems);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  const [hobby, setHobby] = useState('');
   const [birthday, setBirthday] = useState(null);
   const [age, setAge] = useState('');
-  const [hobby, setHobby] = useState('');
-  // const [items, setItems] = useState([]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleFirstNameChange = event => {
+    console.log(event.target.value)
+    setFirstName(event.target.value);
 
-    const newItems = [];
-    newItems.push({
-      firstName,
-      lastName,
-      birthday,
-      age,
-      hobby,
-    });
+  };
 
-    console.log("checking the new items", setItem(newItems))
-    // setItems([...items, newItems]);
-    props.setItem(newItems)
-    // setFirstName('');
-    // setLastName('');
-    // setBirthday(null);
-    // setAge('');
-    // setHobby('');
-    // setItems([])
-  }
+  const handleLastNameChange = event => {
+    console.log(event.target.value)
+    setLastName(event.target.value);
+  };
+  const handleHobbyChange = event => {
 
-  const changeFirstName = (e) => {
-    setFirstName(e.target.value)
-  }
-  const changeLastName = (e) => {
-    setLastName(e.target.value)
-  }
-  const changeHobby = (e) => {
-    setHobby(e.target.value)
-  }
-  const handleDateChange = (date, dateString) => {
+    setHobby(event.target.value);
+  };
+
+  const handleBirthdayChange = (date, dateString) => {
     const years = moment().diff(dateString, 'years',false);
     setBirthday({ birthday: dateString});
     setAge({age: years })
   };
 
-    return (
-      <div className="App">
+  const handleSubmit = event => {
+    dispatchItems({
+      type: 'SET_ITEM',
+      firstName,
+      lastName,
+      hobby,
+      birthday,
+      age,
+      id: uuid(),
+    });
+        setFirstName('');
+    setLastName('');
+    setHobby('');
+    setBirthday('');
+    setAge('');
+    event.preventDefault();
+  };
 
+
+
+  return (
+  <div>
+ 
           <UserForm 
-          changeFirstName={changeFirstName}
-          changeLastName={changeLastName}
-          changeHobby={changeHobby}
-          handleSubmit={handleSubmit}
           firstName={firstName}
           lastName={lastName}
+          hobby={hobby}
           birthday={birthday}
           age={age}
-          hobby={hobby}
-          handleDateChange={handleDateChange} />
-        <Table />
+          handleFirstNameChange={handleFirstNameChange}
+          handleLastNameChange={handleLastNameChange}
+          handleHobbyChange={handleHobbyChange}
+          handleBirthdayChange={handleBirthdayChange}
+          handleSubmit={handleSubmit}
+          />
 
-      </div>
-    );
-}
-const mapDispatchToProps = dispatch => ({
-  setItem: item => dispatch(setItem(item))
-})
+          <p>{firstName}</p>
+          <Table items={items}/>
+  </div>)
 
-
-export default connect(null, mapDispatchToProps)(App);
+};
+export default App;

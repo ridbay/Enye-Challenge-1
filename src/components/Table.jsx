@@ -1,9 +1,8 @@
 import React from 'react';
 import './Table.css';
-import {connect} from 'react-redux';
 
 const Table = (props)=> {
-        const { items } = props;
+    const { items } = props;
         return (
             <div>
                 <table className="table">
@@ -20,8 +19,8 @@ const Table = (props)=> {
                                 <tr key={index}>
                                     <td>{item.firstName}</td>
                                     <td>{item.lastName}</td>
-                                    <td>{item.birthday}</td>
-                                    <td>{item.age}</td>
+                                    <td>{item.birthday.birthday}</td>
+                                    <td>{item.age.age}</td>
                                     <td>{item.hobby}</td>
                                 </tr>
                             );
@@ -33,7 +32,4 @@ const Table = (props)=> {
 }
 
 
-const mapStateToProps = (state) => ({
-items: state.items
-})
-export default connect(mapStateToProps)(Table);
+export default Table;
