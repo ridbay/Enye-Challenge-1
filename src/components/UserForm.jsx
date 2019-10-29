@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Icon, Input, Button, DatePicker } from 'antd';
 import moment from 'moment';
 import { connect } from "react-redux";
-import {submitUser} from '../redux/actions'
+import { submitUser } from '../redux/actions'
 
 const hasErrors = (fieldsError) => {
   return Object.keys(fieldsError).some(field => fieldsError[field]);
@@ -25,8 +25,8 @@ class UserForm extends React.Component {
   }
   handleSubmit = (event) => {
     event.preventDefault();
-    const {firstName, lastName, hobby, birthday, age} = this.state;
-    this.props.submitUser({firstName, lastName, hobby, birthday, age});
+    const { firstName, lastName, hobby, birthday, age } = this.state;
+    this.props.submitUser({ firstName, lastName, hobby, birthday, age });
     this.setState({
       firstName: "",
       lastName: "",
@@ -48,7 +48,7 @@ class UserForm extends React.Component {
   };
   render() {
     const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
-    const {firstName, lastName, hobby} = this.state;
+    const { firstName, lastName, hobby } = this.state;
 
     // Only show error after a field is touched.
     const fNameError = isFieldTouched('fName') && getFieldError('fName');
@@ -115,7 +115,7 @@ class UserForm extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    submitUser: ({firstName, lastName, hobby, birthday, age}) => dispatch(submitUser({firstName, lastName, hobby, birthday, age}))
+    submitUser: ({ firstName, lastName, hobby, birthday, age }) => dispatch(submitUser({ firstName, lastName, hobby, birthday, age }))
   };
 }
 export default connect(mapDispatchToProps)(Form.create({ name: 'horizontal_login' })(UserForm));
