@@ -1,8 +1,9 @@
-import React from 'react';
+import React from "react";
+import { connect } from "react-redux";
 import './Table.css'
 
 const Table = (props)=> {
-        const { items } = props;
+        const { users } = props;
         return (
             <div>
                 <table className="table">
@@ -14,14 +15,14 @@ const Table = (props)=> {
                             <th>Age (years)</th>
                             <th>Hobby</th>
                         </tr>
-                        {items.map((item, index )=> {
+                        {users.map((user, index )=> {
                             return (
                                 <tr key={index}>
-                                    <td>{item.firstName}</td>
-                                    <td>{item.lastName}</td>
-                                    <td>{item.birthday.birthday}</td>
-                                    <td>{item.age.age}</td>
-                                    <td>{item.hobby}</td>
+                                    <td>{user.firstName}</td>
+                                    <td>{user.lastName}</td>
+                                    <td>{user.birthday.birthday}</td>
+                                    <td>{user.age.age}</td>
+                                    <td>{user.hobby}</td>
                                 </tr>
                             );
                         })}
@@ -31,4 +32,9 @@ const Table = (props)=> {
         )
 }
 
-export default Table;
+
+const mapStateToProps = state => {
+    return { users: state.users };
+}
+  
+export default connect(mapStateToProps)(Table);
