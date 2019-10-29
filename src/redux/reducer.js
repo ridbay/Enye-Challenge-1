@@ -1,13 +1,13 @@
 import { SUBMIT_USER } from './actionTypes'
 
 const initialState = {
-    info:{
-    firstName: '',
-    lastName: '',
-    birthday: null,
-    age: '',
-    hobby: '',
-},
+    info: {
+        firstName: '',
+        lastName: '',
+        birthday: null,
+        age: '',
+        hobby: '',
+    },
     users: []
 
 }
