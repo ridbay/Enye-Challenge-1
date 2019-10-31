@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { Form, Icon, Input, Button, DatePicker } from 'antd';
 import "antd/dist/antd.css";
 import moment from 'moment';
@@ -12,14 +12,12 @@ const UserForm =(props)=> {
     // props.form.validateFields();
     const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = props.form;
 
-    const {firstName,
-        lastName,
-        hobby,
-        handleFirstNameChange,
-        handleLastNameChange,
-        handleHobbyChange,
-        handleBirthdayChange,
-        handleSubmit} = props;
+    const dispatch = useContext(UserContext);
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [hobby, setHobby] = useState('');
+    const [birthday, setBirthday] = useState('');
+    const [age, setAge] = useState('');
 
     // Only show error after a field is touched.
     const fNameError = isFieldTouched('fName') && getFieldError('fName');
